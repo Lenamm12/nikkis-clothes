@@ -77,33 +77,38 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         );
       case 'combined':
         return (
-          <div className="flex flex-col bg-muted/30"> {/* Images stacked vertically */}
-            <div className="aspect-video relative w-full">
+          <div className="flex flex-row aspect-[3/2] w-full bg-muted/10">
+            {/* Real-life/Outfit Image */}
+            <div className="relative w-1/2 h-full">
               <Image
                 src={item.imageUrl}
                 alt={`${item.name} (Outfit)`}
                 layout="fill"
-                objectFit="contain"
+                objectFit="cover"
                 data-ai-hint={aiHintRealLife}
+                className="rounded-l-sm" // Match card's border radius slightly if needed
               />
-              <span className="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 py-0.5 rounded">Outfit</span>
+              <span className="absolute bottom-1 left-1 bg-black/50 text-white text-xs px-1 py-0.5 rounded">Outfit</span>
             </div>
-            {item.ingameImageUrl ? (
-              <div className="aspect-video relative w-full mt-0.5">
+            
+            {/* In-game Image */}
+            <div className="relative w-1/2 h-full">
+              {item.ingameImageUrl ? (
                 <Image
                   src={item.ingameImageUrl}
                   alt={`${item.name} (In-game)`}
                   layout="fill"
-                  objectFit="contain"
+                  objectFit="cover"
                   data-ai-hint={aiHintIngame}
+                  className="rounded-r-sm" // Match card's border radius slightly if needed
                 />
-                <span className="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 py-0.5 rounded">In-Game</span>
-              </div>
-            ) : (
-               <div className="aspect-video relative w-full mt-0.5 flex items-center justify-center bg-muted">
-                  <p className="text-muted-foreground text-sm p-2 text-center">In-game image not available</p>
-               </div>
-            )}
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-muted rounded-r-sm">
+                  <p className="text-muted-foreground text-xs p-2 text-center">In-game image not available</p>
+                </div>
+              )}
+              <span className="absolute bottom-1 right-1 bg-black/50 text-white text-xs px-1 py-0.5 rounded">In-Game</span>
+            </div>
           </div>
         );
       case 'realLife':
