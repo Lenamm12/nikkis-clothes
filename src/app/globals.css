@@ -2,79 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --background: 20 60% 98%; /* Lighter, slightly peachy white */
+    --foreground: 20 15% 35%; /* Soft, desaturated dark brown/gray */
+    --card: 0 0% 100%; /* White cards for clean look */
+    --card-foreground: 20 15% 35%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --popover-foreground: 20 15% 35%;
+    --primary: 330 100% 88%; /* Soft Pink - pastel */
+    --primary-foreground: 330 60% 25%; /* Darker Pink for text */
+    --secondary: 45 100% 85%; /* Soft Yellow - pastel */
+    --secondary-foreground: 45 60% 30%; /* Darker Yellow for text */
+    --muted: 20 30% 94%;
+    --muted-foreground: 20 15% 55%;
+    --accent: 330 100% 88%; /* Using primary pink as main accent */
+    --accent-foreground: 330 60% 25%;
+    --destructive: 0 75% 70%; /* Softer red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 20 30% 90%; /* Very soft border */
+    --input: 20 30% 96%; /* Slightly off-white input bg */
+    --ring: 330 90% 80%; /* Ring color based on primary */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Sidebar specific colors, can be adjusted if sidebar is used heavily */
+    --sidebar-background: 20 60% 97%;
+    --sidebar-foreground: 20 15% 30%;
+    --sidebar-primary: 330 90% 80%;
+    --sidebar-primary-foreground: 330 60% 20%;
+    --sidebar-accent: 45 90% 80%;
+    --sidebar-accent-foreground: 45 60% 25%;
+    --sidebar-border: 20 30% 88%;
+    --sidebar-ring: 330 80% 75%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
+    --background: 220 20% 12%; /* Dark cool gray */
+    --foreground: 220 20% 92%; /* Light cool gray for text */
+    --card: 220 20% 16%; /* Slightly lighter card bg */
+    --card-foreground: 220 20% 92%;
+    --popover: 220 20% 16%;
+    --popover-foreground: 220 20% 92%;
+    --primary: 330 80% 70%; /* Muted Pink for dark mode */
+    --primary-foreground: 330 40% 15%;
+    --secondary: 45 80% 70%; /* Muted Yellow for dark mode */
+    --secondary-foreground: 45 40% 20%;
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 15% 65%;
+    --accent: 330 80% 70%;
+    --accent-foreground: 330 40% 15%;
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 25%;
+    --input: 220 20% 22%;
+    --ring: 330 70% 60%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+
+    /* Sidebar specific colors for dark mode */
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 220 20% 88%;
+    --sidebar-primary: 330 70% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 45 70% 65%;
+    --sidebar-accent-foreground: 220 20% 88%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 330 70% 55%;
   }
 }
 
@@ -84,5 +84,6 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    /* Removed specific font-family to allow Geist from layout.tsx to take precedence */
   }
 }
