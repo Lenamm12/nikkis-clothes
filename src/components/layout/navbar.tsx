@@ -21,36 +21,36 @@ export default function Navbar() {
   const navLinks = (
     <>
       <Link href="/" passHref>
-        <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Home</Button>
+        <Button variant="ghost" className="text-foreground hover:text-black hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>Home</Button>
       </Link>
       <Link href="/search" passHref>
-        <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Browse</Button>
+        <Button variant="ghost" className="text-foreground hover:text-black hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>Browse</Button>
       </Link>
       <Link href="/suggest-item" passHref>
-        <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+        <Button variant="ghost" className="text-foreground hover:text-black hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
           <PlusCircle className="mr-2 h-4 w-4" /> Suggest Item
         </Button>
       </Link>
       {mounted && user ? (
         <>
           <Link href="/profile" passHref>
-            <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button variant="ghost" className="text-foreground hover:text-white hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
               <User className="mr-2 h-4 w-4" /> Profile
             </Button>
           </Link>
           <Button variant="ghost" onClick={() => { logout(); setIsMobileMenuOpen(false); }} className="text-foreground hover:text-destructive">
-            <LogOut className="mr-2 h-4 w-4" /> Logout
+            <LogOut className="mr-2 h-4 w-4 hover:text-white hover:font-semibold" /> Logout
           </Button>
         </>
       ) : mounted ? (
         <>
           <Link href="/login" passHref>
-            <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button variant="ghost" className="text-foreground hover:text-black hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
               <LogIn className="mr-2 h-4 w-4" /> Login
             </Button>
           </Link>
           <Link href="/signup" passHref>
-            <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+            <Button variant="ghost" className="text-foreground hover:text-black hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
               <UserPlus className="mr-2 h-4 w-4" /> Sign Up
             </Button>
           </Link>

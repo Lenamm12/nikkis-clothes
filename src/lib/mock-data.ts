@@ -9,8 +9,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item1ig/600/400',
     game: 'Shining Nikki',
     category: 'Dress',
-    rarity: 'SSR',
-    priceCategory: 'Paid (High)',
+    priceCategory: '>100',
     affiliateUrl: '#',
     tags: ['elegant', 'stars', 'gown', 'blue'],
     aiHint: 'starry gown',
@@ -23,8 +22,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item2ig/600/401',
     game: 'Love Nikki',
     category: 'Dress',
-    rarity: 'SR',
-    priceCategory: 'Paid (Medium)',
+    priceCategory: '50-100',
     affiliateUrl: '#',
     tags: ['kimono', 'sakura', 'pink', 'traditional'],
     aiHint: 'sakura kimono',
@@ -37,8 +35,7 @@ const clothingItems: ClothingItem[] = [
     // No ingameImageUrl for this one to test placeholder
     game: 'Shining Nikki',
     category: 'Accessory',
-    rarity: 'SSR',
-    priceCategory: 'Paid (High)',
+    priceCategory: '>100',
     affiliateUrl: '#',
     tags: ['tiara', 'moon', 'jewelry', 'silver'],
     aiHint: 'moon tiara',
@@ -51,8 +48,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item4ig/600/403',
     game: 'Love Nikki',
     category: 'Bottoms',
-    rarity: 'R',
-    priceCategory: 'Free',
+    priceCategory: '<50',
     affiliateUrl: '#',
     tags: ['casual', 'shorts', 'adventure', 'khaki'],
     aiHint: 'explorer shorts',
@@ -65,8 +61,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item5ig/600/404',
     game: 'Infinity Nikki', // New Game
     category: 'Accessory',
-    rarity: 'SR',
-    priceCategory: 'Paid (Low)',
+    priceCategory: '<50',
     affiliateUrl: '#',
     tags: ['hat', 'roses', 'summer', 'floral'],
     aiHint: 'rose hat',
@@ -79,8 +74,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item6ig/600/405',
     game: 'Love Nikki',
     category: 'Accessory',
-    rarity: 'SSR',
-    priceCategory: 'Paid (Medium)',
+    priceCategory: '50-100',
     affiliateUrl: '#',
     tags: ['earrings', 'ocean', 'blue', 'gems'],
     aiHint: 'ocean earrings',
@@ -93,8 +87,7 @@ const clothingItems: ClothingItem[] = [
     // No ingameImageUrl for this one
     game: 'Shining Nikki',
     category: 'Dress',
-    rarity: 'SR',
-    priceCategory: 'Paid (Low)',
+    priceCategory: '<50',
     affiliateUrl: '#',
     tags: ['cute', 'strawberry', 'dress', 'red'],
     aiHint: 'strawberry dress',
@@ -107,8 +100,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item8ig/600/407',
     game: 'Infinity Nikki', // New Game
     category: 'Outerwear',
-    rarity: 'SSR',
-    priceCategory: 'Paid (High)',
+    priceCategory: '>100',
     affiliateUrl: '#',
     tags: ['velvet', 'cape', 'dark', 'mysterious'],
     aiHint: 'velvet cape',
@@ -121,8 +113,7 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item9ig/600/408',
     game: 'Infinity Nikki',
     category: 'Accessory',
-    rarity: 'SR',
-    priceCategory: 'Paid (Medium)',
+    priceCategory: '50-100',
     affiliateUrl: '#',
     tags: ['cyberpunk', 'visor', 'future', 'tech'],
     aiHint: 'cyber visor',
@@ -135,12 +126,23 @@ const clothingItems: ClothingItem[] = [
     ingameImageUrl: 'https://picsum.photos/seed/item10ig/600/409',
     game: 'Infinity Nikki',
     category: 'Shoes',
-    rarity: 'R',
-    priceCategory: 'Free',
+    priceCategory: '<50',
     affiliateUrl: '#',
     tags: ['boots', 'travel', 'adventure', 'brown'],
     aiHint: 'leather boots',
   },
+  {
+    id: '11',
+    name: 'Star Sea',
+    game: 'Infinity Nikki',
+    category: 'Outfit',
+    description: 'Among a sea of stars lies the unpredictable fate.',
+    imageUrl: '',
+    ingameImageUrl: 'https://static.wikia.nocookie.net/shining-nikki/images/4/44/Star_Sea_TW.jpg/revision/latest/scale-to-width-down/1000?cb=20240716230717',
+    affiliateUrl: '',
+    tags: [],
+    aiHint: ''
+  }
 ];
 
 export function getAllClothingItems(): ClothingItem[] {
@@ -172,9 +174,8 @@ export const clothingCategories = Array.from(new Set(clothingItems.map(item => i
 
 // Static lists for filters
 export const gameOptions = ["all", "Shining Nikki", "Love Nikki", "Infinity Nikki"];
-export const rarityOptions = ["all", "SSR", "SR", "R"];
-export const priceCategoryOptions = ["all", "Free", "Paid (Low)", "Paid (Medium)", "Paid (High)"];
+export const priceCategoryOptions = ["all", "<50", "50-100", ">100"];
 export const itemCategoryOptions = ["all", ...clothingCategories];
 
 // For suggestion form game dropdown
-export const availableGames = ["Shining Nikki", "Love Nikki", "Infinity Nikki"];
+export const availableGames = ["Love Nikki", "Shining Nikki", "Infinity Nikki"];

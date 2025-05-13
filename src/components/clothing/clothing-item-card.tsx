@@ -137,8 +137,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         <CardDescription className="text-sm text-muted-foreground mb-2 line-clamp-2" title={item.description}>{item.description}</CardDescription>
         <div className="text-xs text-muted-foreground">
           <p>Game: {item.game}</p>
-          <p>Category: {item.category}{item.rarity && ` (${item.rarity})`}</p>
-          {item.priceCategory && <p>Price: {item.priceCategory}</p>}
+          <p>Category: {item.category}</p>
         </div>
       </CardContent>
       <CardFooter className="p-4 flex justify-between items-center border-t mt-auto">

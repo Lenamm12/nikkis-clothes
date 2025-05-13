@@ -6,8 +6,7 @@ export interface ClothingItem {
   ingameImageUrl?: string; // Represents in-game screenshot
   game: string; // e.g., "Shining Nikki", "Love Nikki", "Infinity Nikki"
   category: string; // e.g., "Dress", "Accessory", "Hair"
-  rarity?: string; // e.g., "SSR", "SR", "R"
-  priceCategory?: 'Free' | 'Paid (Low)' | 'Paid (Medium)' | 'Paid (High)';
+  priceCategory?: '<50' | '50-100' | '>100';
   affiliateUrl: string; // Link to buy/obtain item
   tags: string[];
   aiHint: string; // For placeholder image generation (real-life/costume)

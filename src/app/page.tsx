@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <section className="relative rounded-lg overflow-hidden shadow-lg min-h-[400px] md:min-h-[500px] flex items-center justify-center p-6 text-center bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
+      <section className="relative rounded-lg overflow-hidden shadow-md min-h-[300px] md:min-h-[400px] flex items-center justify-center p-6 text-center bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
         <Image
           src="https://picsum.photos/1200/600?random=1"
           alt="Fashion background"
@@ -23,7 +23,7 @@ export default function HomePage() {
           data-ai-hint="pastel fashion background"
           priority
         />
-        <div className="relative z-10 bg-background/70 backdrop-blur-sm p-8 rounded-lg shadow-xl">
+        <div className="relative z-10 bg-background/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             Discover Your Dream Wardrobe
           </h1>

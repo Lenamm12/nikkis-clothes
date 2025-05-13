@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import type { ClothingItem } from '@/types';
-import { searchClothingItems, gameOptions, rarityOptions, priceCategoryOptions, itemCategoryOptions } from '@/lib/mock-data';
+import { searchClothingItems, gameOptions,  priceCategoryOptions, itemCategoryOptions } from '@/lib/mock-data';
 import ClothingItemCard, { type CardViewMode } from '@/components/clothing/clothing-item-card';
 import SearchBar from '@/components/search/search-bar';
 import { Filter, View } from 'lucide-react'; // Added View icon
@@ -42,9 +42,6 @@ function SearchPageContent() {
     
     if (filterGame !== "all") {
       items = items.filter(item => item.game === filterGame);
-    }
-    if (filterRarity !== "all") {
-      items = items.filter(item => item.rarity === filterRarity);
     }
     if (filterPrice !== "all") {
       items = items.filter(item => item.priceCategory === filterPrice);
@@ -86,20 +83,6 @@ function SearchPageContent() {
                     <DropdownMenuRadioGroup value={filterGame} onValueChange={setFilterGame}>
                     {gameOptions.map(game => (
                         <DropdownMenuRadioItem key={game} value={game}>{game === "all" ? "All Games" : game}</DropdownMenuRadioItem>
-                    ))}
-                    </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                    <Button variant="outline"><Filter className="mr-2 h-4 w-4" /> Rarity</Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                    <DropdownMenuLabel>Filter by Rarity</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuRadioGroup value={filterRarity} onValueChange={setFilterRarity}>
-                    {rarityOptions.map(rarity => (
-                        <DropdownMenuRadioItem key={rarity} value={rarity}>{rarity === "all" ? "All Rarities" : rarity}</DropdownMenuRadioItem>
                     ))}
                     </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
