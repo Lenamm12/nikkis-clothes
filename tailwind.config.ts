@@ -59,7 +59,12 @@ export default {
   				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
-  			}
+  			},
+        'cta-button': {
+          DEFAULT: 'hsl(var(--cta-button-background))',
+          foreground: 'hsl(var(--cta-button-foreground))',
+          hover: 'hsl(var(--cta-button-background-hover))'
+        }
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

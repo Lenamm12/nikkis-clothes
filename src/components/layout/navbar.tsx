@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Heart, LogIn, LogOut, Search, ShoppingBag, User, UserPlus, Menu, X } from 'lucide-react';
+import { Heart, LogIn, LogOut, Search, User, UserPlus, Menu, X, PlusCircle } from 'lucide-react'; // Added PlusCircle
 import { Button } from '@/components/ui/button';
 import SearchBar from '@/components/search/search-bar';
 import { useAuth } from '@/hooks/use-auth';
@@ -25,6 +25,11 @@ export default function Navbar() {
       </Link>
       <Link href="/search" passHref>
         <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>Browse</Button>
+      </Link>
+      <Link href="/suggest-item" passHref>
+        <Button variant="ghost" className="text-foreground hover:text-primary" onClick={() => setIsMobileMenuOpen(false)}>
+          <PlusCircle className="mr-2 h-4 w-4" /> Suggest Item
+        </Button>
       </Link>
       {mounted && user ? (
         <>

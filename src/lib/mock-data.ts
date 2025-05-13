@@ -5,10 +5,12 @@ const clothingItems: ClothingItem[] = [
     id: '1',
     name: 'Starry Night Gown',
     description: 'A beautiful gown shimmering with the light of a thousand stars. Perfect for elegant evenings.',
-    imageUrl: 'https://picsum.photos/400/600',
+    imageUrl: 'https://picsum.photos/seed/item1rl/400/600',
+    ingameImageUrl: 'https://picsum.photos/seed/item1ig/600/400',
     game: 'Shining Nikki',
     category: 'Dress',
     rarity: 'SSR',
+    priceCategory: 'Paid (High)',
     affiliateUrl: '#',
     tags: ['elegant', 'stars', 'gown', 'blue'],
     aiHint: 'starry gown',
@@ -17,10 +19,12 @@ const clothingItems: ClothingItem[] = [
     id: '2',
     name: 'Sakura Kimono',
     description: 'A delicate kimono adorned with cherry blossom patterns. Evokes the beauty of spring.',
-    imageUrl: 'https://picsum.photos/400/601',
+    imageUrl: 'https://picsum.photos/seed/item2rl/400/601',
+    ingameImageUrl: 'https://picsum.photos/seed/item2ig/600/401',
     game: 'Love Nikki',
     category: 'Dress',
     rarity: 'SR',
+    priceCategory: 'Paid (Medium)',
     affiliateUrl: '#',
     tags: ['kimono', 'sakura', 'pink', 'traditional'],
     aiHint: 'sakura kimono',
@@ -29,10 +33,12 @@ const clothingItems: ClothingItem[] = [
     id: '3',
     name: 'Moonlit Tiara',
     description: 'A sparkling tiara that captures the essence of the moonlight. Adds a touch of royalty.',
-    imageUrl: 'https://picsum.photos/400/602',
+    imageUrl: 'https://picsum.photos/seed/item3rl/400/602',
+    // No ingameImageUrl for this one to test placeholder
     game: 'Shining Nikki',
     category: 'Accessory',
     rarity: 'SSR',
+    priceCategory: 'Paid (High)',
     affiliateUrl: '#',
     tags: ['tiara', 'moon', 'jewelry', 'silver'],
     aiHint: 'moon tiara',
@@ -41,10 +47,12 @@ const clothingItems: ClothingItem[] = [
     id: '4',
     name: 'Casual Explorer Shorts',
     description: 'Comfortable and stylish shorts for everyday adventures. Ready for anything!',
-    imageUrl: 'https://picsum.photos/400/603',
+    imageUrl: 'https://picsum.photos/seed/item4rl/400/603',
+    ingameImageUrl: 'https://picsum.photos/seed/item4ig/600/403',
     game: 'Love Nikki',
     category: 'Bottoms',
     rarity: 'R',
+    priceCategory: 'Free',
     affiliateUrl: '#',
     tags: ['casual', 'shorts', 'adventure', 'khaki'],
     aiHint: 'explorer shorts',
@@ -53,10 +61,12 @@ const clothingItems: ClothingItem[] = [
     id: '5',
     name: 'Rose Garden Hat',
     description: 'A wide-brimmed hat decorated with fresh roses. Perfect for a sunny day in the garden.',
-    imageUrl: 'https://picsum.photos/400/604',
-    game: 'Shining Nikki',
+    imageUrl: 'https://picsum.photos/seed/item5rl/400/604',
+    ingameImageUrl: 'https://picsum.photos/seed/item5ig/600/404',
+    game: 'Infinity Nikki', // New Game
     category: 'Accessory',
     rarity: 'SR',
+    priceCategory: 'Paid (Low)',
     affiliateUrl: '#',
     tags: ['hat', 'roses', 'summer', 'floral'],
     aiHint: 'rose hat',
@@ -65,10 +75,12 @@ const clothingItems: ClothingItem[] = [
     id: '6',
     name: 'Ocean Whisper Earrings',
     description: 'Earrings crafted from rare sea gems, whispering tales of the deep ocean.',
-    imageUrl: 'https://picsum.photos/400/605',
+    imageUrl: 'https://picsum.photos/seed/item6rl/400/605',
+    ingameImageUrl: 'https://picsum.photos/seed/item6ig/600/405',
     game: 'Love Nikki',
     category: 'Accessory',
     rarity: 'SSR',
+    priceCategory: 'Paid (Medium)',
     affiliateUrl: '#',
     tags: ['earrings', 'ocean', 'blue', 'gems'],
     aiHint: 'ocean earrings',
@@ -77,10 +89,12 @@ const clothingItems: ClothingItem[] = [
     id: '7',
     name: 'Sweet Strawberry Dress',
     description: 'A cute and playful dress with a strawberry print, perfect for a picnic.',
-    imageUrl: 'https://picsum.photos/400/606',
+    imageUrl: 'https://picsum.photos/seed/item7rl/400/606',
+    // No ingameImageUrl for this one
     game: 'Shining Nikki',
     category: 'Dress',
     rarity: 'SR',
+    priceCategory: 'Paid (Low)',
     affiliateUrl: '#',
     tags: ['cute', 'strawberry', 'dress', 'red'],
     aiHint: 'strawberry dress',
@@ -89,13 +103,43 @@ const clothingItems: ClothingItem[] = [
     id: '8',
     name: 'Midnight Velvet Cape',
     description: 'A luxurious velvet cape, dark as the midnight sky, for a mysterious allure.',
-    imageUrl: 'https://picsum.photos/400/607',
-    game: 'Love Nikki',
+    imageUrl: 'https://picsum.photos/seed/item8rl/400/607',
+    ingameImageUrl: 'https://picsum.photos/seed/item8ig/600/407',
+    game: 'Infinity Nikki', // New Game
     category: 'Outerwear',
     rarity: 'SSR',
+    priceCategory: 'Paid (High)',
     affiliateUrl: '#',
     tags: ['velvet', 'cape', 'dark', 'mysterious'],
     aiHint: 'velvet cape',
+  },
+  {
+    id: '9',
+    name: 'Cyber Runner Visor',
+    description: 'A futuristic visor for the tech-savvy stylist.',
+    imageUrl: 'https://picsum.photos/seed/item9rl/400/608',
+    ingameImageUrl: 'https://picsum.photos/seed/item9ig/600/408',
+    game: 'Infinity Nikki',
+    category: 'Accessory',
+    rarity: 'SR',
+    priceCategory: 'Paid (Medium)',
+    affiliateUrl: '#',
+    tags: ['cyberpunk', 'visor', 'future', 'tech'],
+    aiHint: 'cyber visor',
+  },
+  {
+    id: '10',
+    name: 'Wanderer\'s Boots',
+    description: 'Sturdy boots for long journeys across any terrain.',
+    imageUrl: 'https://picsum.photos/seed/item10rl/400/609',
+    ingameImageUrl: 'https://picsum.photos/seed/item10ig/600/409',
+    game: 'Infinity Nikki',
+    category: 'Shoes',
+    rarity: 'R',
+    priceCategory: 'Free',
+    affiliateUrl: '#',
+    tags: ['boots', 'travel', 'adventure', 'brown'],
+    aiHint: 'leather boots',
   },
 ];
 
@@ -108,20 +152,29 @@ export function getClothingItemById(id: string): ClothingItem | undefined {
 }
 
 export function searchClothingItems(query: string): ClothingItem[] {
-  if (!query) return clothingItems;
+  if (!query) return clothingItems; // Return all if query is empty, filters will apply later
   const lowerCaseQuery = query.toLowerCase();
   return clothingItems.filter(item =>
     item.name.toLowerCase().includes(lowerCaseQuery) ||
     item.description.toLowerCase().includes(lowerCaseQuery) ||
-    item.category.toLowerCase().includes(lowerCaseQuery) ||
-    item.game.toLowerCase().includes(lowerCaseQuery) ||
+    item.category.toLowerCase().includes(lowerCaseQuery) || // Keep category search here for broad match
+    // item.game.toLowerCase().includes(lowerCaseQuery) || // Game filter is separate
     item.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery))
   );
 }
 
 export function getFeaturedItems(count: number = 4): ClothingItem[] {
-  // Simple featured logic: take the first 'count' items or highly rated ones if available
+  // Simple featured logic: take the first 'count' items
   return clothingItems.slice(0, count);
 }
 
-export const clothingCategories = Array.from(new Set(clothingItems.map(item => item.category)));
+export const clothingCategories = Array.from(new Set(clothingItems.map(item => item.category))).sort();
+
+// Static lists for filters
+export const gameOptions = ["all", "Shining Nikki", "Love Nikki", "Infinity Nikki"];
+export const rarityOptions = ["all", "SSR", "SR", "R"];
+export const priceCategoryOptions = ["all", "Free", "Paid (Low)", "Paid (Medium)", "Paid (High)"];
+export const itemCategoryOptions = ["all", ...clothingCategories];
+
+// For suggestion form game dropdown
+export const availableGames = ["Shining Nikki", "Love Nikki", "Infinity Nikki"];

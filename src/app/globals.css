@@ -39,6 +39,11 @@
     --sidebar-accent-foreground: 45 60% 25%;
     --sidebar-border: 20 30% 88%;
     --sidebar-ring: 330 80% 75%;
+
+    /* CTA Button Colors */
+    --cta-button-background: 45 100% 60%; /* Bright Yellow */
+    --cta-button-foreground: 45 50% 20%; /* Darker Yellow for text */
+    --cta-button-background-hover: 45 100% 55%; /* Slightly Darker Bright Yellow for Hover */
   }
   .dark {
     --background: 220 20% 12%; /* Dark cool gray */
@@ -75,6 +80,11 @@
     --sidebar-accent-foreground: 220 20% 88%;
     --sidebar-border: 220 20% 20%;
     --sidebar-ring: 330 70% 55%;
+
+    /* CTA Button Colors for dark mode */
+    --cta-button-background: 45 90% 55%; 
+    --cta-button-foreground: 45 50% 15%; 
+    --cta-button-background-hover: 45 90% 50%;
   }
 }
 
