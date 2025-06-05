@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -5,10 +6,12 @@ import Link from 'next/link';
 import type { ClothingItem } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Heart, ArrowUpRight } from 'lucide-react'; // Changed ShoppingBag to ArrowUpRight
+import { Heart, ArrowUpRight, Eye } from 'lucide-react'; // Added Eye icon
 import { useState, useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/hooks/use-auth';
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import ClothingItemDetailDrawer from './clothing-item-detail-drawer'; // New import
 
 export type CardViewMode = 'realLife' | 'ingame' | 'combined';
 
@@ -86,7 +89,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
                 layout="fill"
                 objectFit="cover"
                 data-ai-hint={aiHintRealLife}
-                className="rounded-l-sm" // Match card's border radius slightly if needed
+                className="rounded-l-sm"
               />
               <span className="absolute bottom-1 left-1 bg-black/50 text-white text-xs px-1 py-0.5 rounded">Outfit</span>
             </div>
@@ -100,7 +103,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
                   layout="fill"
                   objectFit="cover"
                   data-ai-hint={aiHintIngame}
-                  className="rounded-r-sm" // Match card's border radius slightly if needed
+                  className="rounded-r-sm"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center bg-muted rounded-r-sm">
@@ -128,34 +131,48 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
   };
 
   return (
-    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-      <CardHeader className="p-0">
-        {renderImages()}
-      </CardHeader>
-      <CardContent className="p-4 flex-grow">
-        <CardTitle className="text-lg font-semibold text-foreground mb-1 truncate" title={item.name}>{item.name}</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground mb-2 line-clamp-2" title={item.description}>{item.description}</CardDescription>
-        <div className="text-xs text-muted-foreground">
-          <p>Game: {item.game}</p>
-          <p>Category: {item.category}</p>
-        </div>
-      </CardContent>
-      <CardFooter className="p-4 flex justify-between items-center border-t mt-auto">
-        <Button 
-          size="sm" 
-          asChild
-          className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
-        >
-          <Link href={item.affiliateUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get ${item.name}`}>
-            <ArrowUpRight className="mr-2 h-4 w-4" /> Get it here
-          </Link>
-        </Button>
-        {mounted && (
-          <Button variant="ghost" size="icon" onClick={handleLikeToggle} aria-label={liked ? 'Unlike item' : 'Like item'}>
-            <Heart className={`h-5 w-5 transition-colors ${liked ? 'text-red-500 fill-current' : 'text-muted-foreground'}`} />
-          </Button>
-        )}
-      </CardFooter>
-    </Card>
+    <Sheet>
+      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+        <CardHeader className="p-0">
+          {renderImages()}
+        </CardHeader>
+        <CardContent className="p-4 flex-grow">
+          <SheetTrigger asChild>
+            <CardTitle className="text-lg font-semibold text-foreground mb-1 truncate cursor-pointer hover:text-primary" title={item.name}>{item.name}</CardTitle>
+          </SheetTrigger>
+          <CardDescription className="text-sm text-muted-foreground mb-2 line-clamp-2" title={item.description}>{item.description}</CardDescription>
+          <div className="text-xs text-muted-foreground">
+            <p>Game: {item.game}</p>
+            <p>Category: {item.category}</p>
+          </div>
+        </CardContent>
+        <CardFooter className="p-4 flex justify-between items-center border-t mt-auto">
+          <div className="flex gap-2">
+            <Button 
+              size="sm" 
+              asChild
+              className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
+            >
+              <Link href={item.affiliateUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get ${item.name}`}>
+                <ArrowUpRight className="mr-2 h-4 w-4" /> Get it here
+              </Link>
+            </Button>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="sm">
+                <Eye className="mr-2 h-4 w-4" /> Details
+              </Button>
+            </SheetTrigger>
+          </div>
+          {mounted && (
+            <Button variant="ghost" size="icon" onClick={handleLikeToggle} aria-label={liked ? 'Unlike item' : 'Like item'}>
+              <Heart className={`h-5 w-5 transition-colors ${liked ? 'text-red-500 fill-current' : 'text-muted-foreground'}`} />
+            </Button>
+          )}
+        </CardFooter>
+      </Card>
+      <SheetContent className="w-full sm:max-w-lg overflow-y-auto">
+        <ClothingItemDetailDrawer item={item} />
+      </SheetContent>
+    </Sheet>
   );
 }
