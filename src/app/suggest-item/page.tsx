@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { availableGames } from "@/lib/mock-data"; // Using static list from mock-data
+import { availableGames } from "@/lib/data"; // Using static list from mock-data
 import { Send } from "lucide-react";
 
 const suggestionFormSchema = z.object({

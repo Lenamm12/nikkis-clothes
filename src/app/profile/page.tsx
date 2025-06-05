@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Heart, Bell, Settings, UserCircle } from 'lucide-react';
 import type { ClothingItem } from '@/types';
-import { getClothingItemById, getAllClothingItems } from '@/lib/mock-data'; // Assuming you have this function
+import { getClothingItemById, getAllClothingItems } from '@/lib/data'; // Assuming you have this function
 import ClothingItemCard from '@/components/clothing/clothing-item-card';
 
 export default function ProfilePage() {

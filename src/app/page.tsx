@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SearchBar from '@/components/search/search-bar';
 import ClothingItemCard from '@/components/clothing/clothing-item-card';
-import { getFeaturedItems, clothingCategories } from '@/lib/mock-data';
+import { getFeaturedItems, clothingCategories } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Sparkles } from 'lucide-react';

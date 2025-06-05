@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
 import type { ClothingItem } from '@/types';
-import { searchClothingItems, gameOptions,  priceCategoryOptions, itemCategoryOptions } from '@/lib/mock-data';
+import { searchClothingItems, gameOptions,  priceCategoryOptions, itemCategoryOptions } from '@/lib/data';
 import ClothingItemCard, { type CardViewMode } from '@/components/clothing/clothing-item-card';
 import SearchBar from '@/components/search/search-bar';
 import { Filter, View } from 'lucide-react'; // Added View icon

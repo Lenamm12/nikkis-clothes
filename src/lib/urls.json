@@ -1,0 +1,44 @@
+[
+    {
+      "id": "1",
+      "name": "Star Sea",
+      "game": "Infinity Nikki",
+      "category": "Outfit",
+      "description": "Among a sea of stars lies the unpredictable fate.",
+      "imageUrl": "",
+      "ingameimageUrl": "https://static.wikia.nocookie.net/shining-nikki/images/4/44/Star_Sea_TW.jpg/revision/latest/scale-to-width-down/1000?cb=20240716230717",
+      "purchaseOptions": [
+        { "shopname": "Celestial Threads", "url": "#", "price": "0", "quality": "high" }
+      ],
+      "tags": [],
+      "aiHint": ""
+    },
+    {
+      "id": "2",
+      "name": "Perfect Start",
+      "game": "Infinity Nikki",
+      "category": "Dress",
+      "description": "",
+      "imageUrl": "",
+      "ingameimageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "purchaseOptions": [
+        { "shopname": "Aliexpress", "url": "https://s.click.aliexpress.com/e/_omWvifq", "price": "41,19€", "quality": "low" }
+      ],
+      "tags": [],
+      "aiHint": ""
+    },
+    {
+      "id": "3",
+      "name": "Perfect Start",
+      "game": "Infinity Nikki",
+      "category": "Outfit",
+      "description": "",
+      "imageUrl": "",
+      "ingameimageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "purchaseOptions": [
+        { "shopname": "Aliexpress", "url": "https://s.click.aliexpress.com/e/_opRNZzW", "price": "58,69€", "quality": "low" }
+      ],
+      "tags": [],
+      "aiHint": ""
+    }
+  ]
