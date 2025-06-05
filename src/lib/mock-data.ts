@@ -1,4 +1,5 @@
-import type { ClothingItem } from '@/types';
+
+import type { ClothingItem, PurchaseOption } from '@/types';
 
 const clothingItems: ClothingItem[] = [
   {
@@ -10,7 +11,10 @@ const clothingItems: ClothingItem[] = [
     game: 'Shining Nikki',
     category: 'Dress',
     priceCategory: '>100',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Official Store', url: '#', price: '$120.00', quality: 'high' },
+      { shopName: 'Reseller Emporium', url: '#', price: '$95.00', quality: 'mid', notes: 'Slightly used' }
+    ],
     tags: ['elegant', 'stars', 'gown', 'blue'],
     aiHint: 'starry gown',
   },
@@ -23,7 +27,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Love Nikki',
     category: 'Dress',
     priceCategory: '50-100',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Traditional Wears', url: '#', price: '$75.50', quality: 'high' }
+    ],
     tags: ['kimono', 'sakura', 'pink', 'traditional'],
     aiHint: 'sakura kimono',
   },
@@ -36,7 +42,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Shining Nikki',
     category: 'Accessory',
     priceCategory: '>100',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Royal Jewels Co.', url: '#', price: '$150.00', quality: 'high' }
+    ],
     tags: ['tiara', 'moon', 'jewelry', 'silver'],
     aiHint: 'moon tiara',
   },
@@ -49,7 +57,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Love Nikki',
     category: 'Bottoms',
     priceCategory: '<50',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Adventure Gear', url: '#', price: '$30.00', quality: 'mid' }
+    ],
     tags: ['casual', 'shorts', 'adventure', 'khaki'],
     aiHint: 'explorer shorts',
   },
@@ -62,7 +72,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Infinity Nikki', // New Game
     category: 'Accessory',
     priceCategory: '<50',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Floral Boutique', url: '#', price: '$45.00', quality: 'mid' }
+    ],
     tags: ['hat', 'roses', 'summer', 'floral'],
     aiHint: 'rose hat',
   },
@@ -75,7 +87,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Love Nikki',
     category: 'Accessory',
     priceCategory: '50-100',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Deep Sea Treasures', url: '#', price: '$65.00', quality: 'high' }
+    ],
     tags: ['earrings', 'ocean', 'blue', 'gems'],
     aiHint: 'ocean earrings',
   },
@@ -88,7 +102,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Shining Nikki',
     category: 'Dress',
     priceCategory: '<50',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Fruity Fashion', url: '#', price: '$40.00', quality: 'mid' }
+    ],
     tags: ['cute', 'strawberry', 'dress', 'red'],
     aiHint: 'strawberry dress',
   },
@@ -101,7 +117,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Infinity Nikki', // New Game
     category: 'Outerwear',
     priceCategory: '>100',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Mystic Garbs', url: '#', price: '$180.00', quality: 'high' }
+    ],
     tags: ['velvet', 'cape', 'dark', 'mysterious'],
     aiHint: 'velvet cape',
   },
@@ -114,7 +132,10 @@ const clothingItems: ClothingItem[] = [
     game: 'Infinity Nikki',
     category: 'Accessory',
     priceCategory: '50-100',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Tech Emporium', url: '#', price: '$80.00', quality: 'high' },
+      { shopName: 'Budget Gadgets', url: '#', price: '$55.00', quality: 'low', notes: 'Refurbished unit' }
+    ],
     tags: ['cyberpunk', 'visor', 'future', 'tech'],
     aiHint: 'cyber visor',
   },
@@ -127,7 +148,9 @@ const clothingItems: ClothingItem[] = [
     game: 'Infinity Nikki',
     category: 'Shoes',
     priceCategory: '<50',
-    affiliateUrl: '#',
+    purchaseOptions: [
+      { shopName: 'Trailblazer Outfits', url: '#', price: '$48.00', quality: 'mid' }
+    ],
     tags: ['boots', 'travel', 'adventure', 'brown'],
     aiHint: 'leather boots',
   },
@@ -139,7 +162,9 @@ const clothingItems: ClothingItem[] = [
     description: 'Among a sea of stars lies the unpredictable fate.',
     imageUrl: '',
     ingameImageUrl: 'https://static.wikia.nocookie.net/shining-nikki/images/4/44/Star_Sea_TW.jpg/revision/latest/scale-to-width-down/1000?cb=20240716230717',
-    affiliateUrl: '',
+    purchaseOptions: [
+      { shopName: 'Celestial Threads', url: '#', price: 'Contact for price', quality: 'high' }
+    ],
     tags: [],
     aiHint: ''
   }
@@ -160,7 +185,6 @@ export function searchClothingItems(query: string): ClothingItem[] {
     item.name.toLowerCase().includes(lowerCaseQuery) ||
     item.description.toLowerCase().includes(lowerCaseQuery) ||
     item.category.toLowerCase().includes(lowerCaseQuery) || // Keep category search here for broad match
-    // item.game.toLowerCase().includes(lowerCaseQuery) || // Game filter is separate
     item.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery))
   );
 }

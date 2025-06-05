@@ -6,12 +6,12 @@ import Link from 'next/link';
 import type { ClothingItem } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Heart, ArrowUpRight, Eye } from 'lucide-react'; // Added Eye icon
+import { Heart, ArrowUpRight, Eye } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from '@/hooks/use-auth';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import ClothingItemDetailDrawer from './clothing-item-detail-drawer'; // New import
+import ClothingItemDetailDrawer from './clothing-item-detail-drawer';
 
 export type CardViewMode = 'realLife' | 'ingame' | 'combined';
 
@@ -84,7 +84,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
             {/* Real-life/Outfit Image */}
             <div className="relative w-1/2 h-full">
               <Image
-                src={item.imageUrl}
+                src={item.imageUrl || `https://placehold.co/300x400.png?text=${encodeURIComponent(item.name)}`}
                 alt={`${item.name} (Outfit)`}
                 layout="fill"
                 objectFit="cover"
@@ -119,7 +119,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         return (
           <div className="aspect-[3/4] relative w-full">
             <Image
-              src={item.imageUrl}
+              src={item.imageUrl || `https://placehold.co/400x600.png?text=${encodeURIComponent(item.name)}`}
               alt={item.name}
               layout="fill"
               objectFit="cover"
@@ -129,6 +129,8 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         );
     }
   };
+
+  const primaryPurchaseUrl = item.purchaseOptions?.[0]?.url;
 
   return (
     <Sheet>
@@ -148,15 +150,25 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         </CardContent>
         <CardFooter className="p-4 flex justify-between items-center border-t mt-auto">
           <div className="flex gap-2">
-            <Button 
-              size="sm" 
-              asChild
-              className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
-            >
-              <Link href={item.affiliateUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get ${item.name}`}>
+            {primaryPurchaseUrl ? (
+              <Button 
+                size="sm" 
+                asChild
+                className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
+              >
+                <Link href={primaryPurchaseUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get ${item.name}`}>
+                  <ArrowUpRight className="mr-2 h-4 w-4" /> Get it here
+                </Link>
+              </Button>
+            ) : (
+              <Button 
+                size="sm" 
+                className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
+                disabled
+              >
                 <ArrowUpRight className="mr-2 h-4 w-4" /> Get it here
-              </Link>
-            </Button>
+              </Button>
+            )}
             <SheetTrigger asChild>
               <Button variant="outline" size="sm">
                 <Eye className="mr-2 h-4 w-4" /> Details

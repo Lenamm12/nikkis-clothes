@@ -1,5 +1,5 @@
 
-import type { ClothingItem } from '@/types';
+import type { ClothingItem, PurchaseOption } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -7,11 +7,24 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
-import { ExternalLink, Tag } from 'lucide-react';
+import { ExternalLink, Tag, ShoppingCart, Package, DollarSign } from 'lucide-react';
 
 interface ClothingItemDetailDrawerProps {
   item: ClothingItem;
 }
+
+const qualityBadgeVariant = (quality?: 'low' | 'mid' | 'high'): 'default' | 'secondary' | 'outline' | 'destructive' => {
+  switch (quality) {
+    case 'high':
+      return 'default'; // Primary color for high quality
+    case 'mid':
+      return 'secondary'; // Secondary color for mid quality
+    case 'low':
+      return 'outline'; // Outline/Destructive for low quality (using outline for less alarm)
+    default:
+      return 'outline';
+  }
+};
 
 export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDrawerProps) {
   const placeholderIngame = `https://picsum.photos/seed/${item.id}ingame/800/600?grayscale`;
@@ -32,7 +45,7 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md">
             <Image
-              src={item.imageUrl}
+              src={item.imageUrl || `https://placehold.co/400x600.png?text=${encodeURIComponent(item.name)}`}
               alt={`${item.name} (Outfit View)`}
               layout="fill"
               objectFit="cover"
@@ -80,7 +93,7 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
           </div>
           {item.priceCategory && (
             <div>
-              <p className="font-medium text-muted-foreground">Price Range:</p>
+              <p className="font-medium text-muted-foreground">General Price Range:</p>
               <p className="text-foreground">{item.priceCategory}</p>
             </div>
           )}
@@ -107,26 +120,46 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
 
         {/* Where to Buy Section */}
         <div>
-          <h3 className="text-lg font-semibold text-foreground mb-3">Where to Buy</h3>
-          <Button asChild className="w-full bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover">
-            <Link href={item.affiliateUrl} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Get it here
-            </Link>
-          </Button>
-          <p className="mt-3 text-xs text-muted-foreground text-center">
-            This is the primary affiliate link. Availability may vary. Always check retailer T&Cs.
-          </p>
-          {/* Placeholder for future multiple links */}
-          {/* 
-          <div className="mt-4 space-y-2">
-            <p className="text-sm font-medium text-muted-foreground">Other places to find this item:</p>
-            <ul className="list-disc list-inside text-foreground/80">
-              <li><Link href="#" className="hover:underline text-primary">Retailer A</Link></li>
-              <li><Link href="#" className="hover:underline text-primary">Retailer B</Link></li>
+          <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
+            <ShoppingCart className="mr-2 h-5 w-5 text-primary" /> Where to Buy
+          </h3>
+          {item.purchaseOptions && item.purchaseOptions.length > 0 ? (
+            <ul className="space-y-4">
+              {item.purchaseOptions.map((option, index) => (
+                <li key={index} className="p-4 border rounded-lg bg-card shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
+                    <span className="font-semibold text-lg text-foreground">{option.shopName}</span>
+                    <Button 
+                      size="sm" 
+                      asChild 
+                      className="mt-2 sm:mt-0 bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
+                    >
+                      <Link href={option.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="mr-2 h-4 w-4" /> Get it here
+                      </Link>
+                    </Button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+                    {option.price && (
+                      <div className="flex items-center text-muted-foreground">
+                        <DollarSign className="mr-1.5 h-4 w-4" />
+                        Price: <span className="text-foreground ml-1">{option.price}</span>
+                      </div>
+                    )}
+                    {option.quality && (
+                      <div className="flex items-center text-muted-foreground">
+                        <Package className="mr-1.5 h-4 w-4" />
+                        Quality: <Badge variant={qualityBadgeVariant(option.quality)} className="ml-1 capitalize">{option.quality}</Badge>
+                      </div>
+                    )}
+                  </div>
+                  {option.notes && <p className="text-xs text-muted-foreground mt-2 pt-2 border-t border-dashed">{option.notes}</p>}
+                </li>
+              ))}
             </ul>
-          </div>
-          */}
+          ) : (
+            <p className="text-muted-foreground">No purchase options currently listed for this item.</p>
+          )}
         </div>
       </div>
     </ScrollArea>
