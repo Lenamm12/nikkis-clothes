@@ -1,6 +1,13 @@
 
 import type { ClothingItem } from '@/types';
 import clothingItemsData from './urls.json';
+import loveNikkiItemsData from './love-nikki.json';
+import shiningNikkiItemsData from './shining-nikki.json';
+import infinityNikkiItemsData from './infinity-nikki.json';
+
+export const loveNikkiItems: ClothingItem[] = loveNikkiItemsData as unknown as ClothingItem[];
+export const shiningNikkiItems: ClothingItem[] = shiningNikkiItemsData as unknown as ClothingItem[];
+export const infinityNikkiItems: ClothingItem[] = infinityNikkiItemsData as unknown as ClothingItem[];
 
 const clothingItems: ClothingItem[] = clothingItemsData as unknown as ClothingItem[];
 

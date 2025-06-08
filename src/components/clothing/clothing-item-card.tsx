@@ -130,8 +130,6 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
     }
   };
 
-  const primaryPurchaseUrl = item.purchaseOptions?.[0]?.url;
-
   return (
     <Sheet>
       <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
@@ -150,25 +148,6 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         </CardContent>
         <CardFooter className="p-4 flex justify-between items-center border-t mt-auto">
           <div className="flex gap-2">
-            {primaryPurchaseUrl ? (
-              <Button 
-                size="sm" 
-                asChild
-                className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
-              >
-                <Link href={primaryPurchaseUrl} target="_blank" rel="noopener noreferrer" aria-label={`Get ${item.name}`}>
-                  <ArrowUpRight className="mr-2 h-4 w-4" /> Get it here
-                </Link>
-              </Button>
-            ) : (
-              <Button 
-                size="sm" 
-                className="bg-cta-button text-cta-button-foreground hover:bg-cta-button-hover"
-                disabled
-              >
-                <ArrowUpRight className="mr-2 h-4 w-4" /> Get it here
-              </Button>
-            )}
             <SheetTrigger asChild>
               <Button variant="outline" size="sm">
                 <Eye className="mr-2 h-4 w-4" /> Details

@@ -1,8 +1,6 @@
 'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -18,30 +16,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useToast } from "@/hooks/use-toast";
 import { availableGames } from "@/lib/data"; // Using static list from mock-data
 import { Send } from "lucide-react";
-
-const suggestionFormSchema = z.object({
-  itemName: z.string().min(3, { message: "Item name must be at least 3 characters." }),
-  game: z.enum(availableGames as [string, ...string[]], { // Zod enum requires at least one value
-    errorMap: () => ({ message: "Please select a valid game." }),
-  }),
-  purchaseLink: z.string().url({ message: "Please enter a valid URL." }),
-});
-
-type SuggestionFormValues = z.infer<typeof suggestionFormSchema>;
+import {loveNikkiItems, shiningNikkiItems, infinityNikkiItems} from "@/lib/data";
 
 export default function SuggestItemPage() {
   const { toast } = useToast();
 
-  const form = useForm<SuggestionFormValues>({
-    resolver: zodResolver(suggestionFormSchema),
+  const form = useForm({
+
     defaultValues: {
       itemName: "",
-      game: undefined, // No default game selected
+      game: "", // No default game selected
       purchaseLink: "",
     },
   });
 
-  function onSubmit(values: SuggestionFormValues) {
+  function onSubmit(values: any) {
     console.log("Suggestion submitted:", values); // In a real app, send this to a backend
     toast({
       title: "Suggestion Submitted!",
@@ -62,19 +51,7 @@ export default function SuggestItemPage() {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="itemName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Item Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="e.g., Moonlight Sonata Dress" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+
 
               <FormField
                 control={form.control}
@@ -96,6 +73,43 @@ export default function SuggestItemPage() {
                         ))}
                       </SelectContent>
                     </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="itemName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Item Name</FormLabel>
+                    <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="e.g., Moonlight Sonata Dress" />
+                     </SelectTrigger>
+                      <SelectContent>
+                        {
+                          form.formState.defaultValues?.game === "Shining Nikki" && shiningNikkiItems.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}
+                            </SelectItem>
+                          ))
+                          ||
+                          form.formState.defaultValues?.game === "Love Nikki" && loveNikkiItems.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}
+                            </SelectItem>
+                          ))
+                          ||
+                          form.formState.defaultValues?.game === "Infinity Nikki" && infinityNikkiItems.map((item) => (
+                            <SelectItem key={item.id} value={item.id}>
+                              {item.name}
+                            </SelectItem>
+                          ))
+                        }
+                      </SelectContent>
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
