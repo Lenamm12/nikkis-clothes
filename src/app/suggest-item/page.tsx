@@ -15,7 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { availableGames } from "@/lib/data"; // Using static list from mock-data
-import { Send } from "lucide-react";
+import { Send } from "lucide-react"; // Assuming this is used for the submit button icon
 import {loveNikkiItems, shiningNikkiItems, infinityNikkiItems} from "@/lib/data";
 
 export default function SuggestItemPage() {
@@ -31,13 +31,41 @@ export default function SuggestItemPage() {
   });
 
   function onSubmit(values: any) {
-    console.log("Suggestion submitted:", values); // In a real app, send this to a backend
-    toast({
-      title: "Suggestion Submitted!",
-      description: "Thank you for your contribution. We'll review it shortly.",
+    console.log("Suggestion submitted:", values);
+  
+    fetch('/api/suggest-item', { 
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(values),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        toast({
+          title: "Suggestion Submitted!",
+          description: "Thank you for your contribution. We'll review it shortly.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: "There was an error submitting your suggestion. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your suggestion. Please try again later.",
+        variant: "destructive",
+      });
     });
-    form.reset(); // Reset form after successful submission
   }
+  
 
   return (
     <div className="flex items-center justify-center py-12">
@@ -84,32 +112,33 @@ export default function SuggestItemPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Item Name</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="e.g., Moonlight Sonata Dress" />
                      </SelectTrigger>
-                      <SelectContent>
-                        {
-                          form.formState.defaultValues?.game === "Shining Nikki" && shiningNikkiItems.map((item) => (
-                            <SelectItem key={item.id} value={item.id}>
-                              {item.name}
-                            </SelectItem>
-                          ))
-                          ||
-                          form.formState.defaultValues?.game === "Love Nikki" && loveNikkiItems.map((item) => (
-                            <SelectItem key={item.id} value={item.id}>
-                              {item.name}
-                            </SelectItem>
-                          ))
-                          ||
-                          form.formState.defaultValues?.game === "Infinity Nikki" && infinityNikkiItems.map((item) => (
-                            <SelectItem key={item.id} value={item.id}>
-                              {item.name}
-                            </SelectItem>
-                          ))
-                        }
-                      </SelectContent>
                     </FormControl>
+                     <SelectContent>
+                      {form.watch("game") === "Shining Nikki" && shiningNikkiItems.map((item) => (
+                          <SelectItem key={"SN"+item.id} value={item.id}>
+                            {item.name}
+                          </SelectItem>
+                        ))
+                      }
+                      {form.watch("game") === "Love Nikki" && loveNikkiItems.map((item) => (
+                          <SelectItem key={"LN"+item.id} value={item.id}>
+                            {item.name}
+                          </SelectItem>
+                        ))
+                      }
+                      {form.watch("game") === "Infinity Nikki" && infinityNikkiItems.map((item) => (
+                          <SelectItem key={"IN"+item.id} value={item.id}>
+                            {item.name}
+                          </SelectItem>
+                        ))
+                      }
+                    </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}
