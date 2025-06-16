@@ -31,7 +31,7 @@ export default function Navbar() {
           <PlusCircle className="mr-2 h-4 w-4" /> Suggest Item
         </Button>
       </Link>
-      {mounted && user ? (
+      {mounted && user && false ? (
         <>
           <Link href="/profile" passHref>
             <Button variant="ghost" className="text-foreground hover:text-white hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
@@ -42,7 +42,7 @@ export default function Navbar() {
             <LogOut className="mr-2 h-4 w-4 hover:text-white hover:font-semibold" /> Logout
           </Button>
         </>
-      ) : mounted ? (
+      ) : mounted && false ? (
         <>
           <Link href="/login" passHref>
             <Button variant="ghost" className="text-foreground hover:text-black hover:font-semibold" onClick={() => setIsMobileMenuOpen(false)}>
