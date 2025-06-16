@@ -25,10 +25,10 @@ export default function HomePage() {
         />
         <div className="relative z-10 bg-background/90 backdrop-blur-sm p-8 rounded-lg shadow-xl">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Discover Your Dream Wardrobe
+             Dress like your favorite stylist
           </h1>
           <p className="text-lg text-foreground mb-8 max-w-2xl mx-auto">
-            Explore enchanting outfits and accessories from the Nikki series. Find your style, get inspired!
+            Cosplay enchanting outfits or <br/> wear stylish pieces and accessories like Nikki
           </p>
           <div className="max-w-xl mx-auto">
             <SearchBar />
@@ -68,7 +68,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
+      {/* Call to Action Section 
       <section>
         <Card className="bg-primary/10 border-primary/30 shadow-lg">
           <CardContent className="p-8 text-center">
@@ -86,7 +86,7 @@ export default function HomePage() {
             </div>
           </CardContent>
         </Card>
-      </section>
+      </section>*/}
     </div>
   );
 }

@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nikki's Closet",
+  title: "Nikki's Clothes",
   description: 'Search and discover clothing from the Nikki series games.',
+  keywords: 'infinity nikki clothes, love nikki clothes, shining nikki clothes, nikki clothes, nikki, nikki cosplay, nikki costumes, nikki irl, nikki rl, nikki dress, love nikki dress, shining nikki dress, infinity nikki dress,  '
 };
 
 export default function RootLayout({

@@ -57,7 +57,6 @@ function SearchPageContent() {
   return (
     <div className="space-y-8">
       <div className="p-6 bg-card rounded-lg shadow">
-        <h1 className="text-3xl font-semibold text-foreground mb-4">Search Closet</h1>
         <SearchBar />
       </div>
       

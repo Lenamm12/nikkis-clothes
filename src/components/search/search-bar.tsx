@@ -21,7 +21,7 @@ export default function SearchBar() {
     <form onSubmit={handleSearch} className="flex w-full items-center space-x-2">
       <Input
         type="search"
-        placeholder="Search for dresses, accessories..."
+        placeholder="Search for outfits, dresses, accessories..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         className="flex-grow bg-background"
