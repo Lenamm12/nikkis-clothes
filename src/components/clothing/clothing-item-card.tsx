@@ -84,7 +84,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
             {/* Real-life/Outfit Image */}
             <div className="relative w-1/2 h-full">
               <Image
-                src={item.imageUrl || `https://placehold.co/300x400.png?text=${encodeURIComponent(item.name)}`}
+                src={item.imageUrl || item.purchaseOptions?.find(p => p.imageUrl != "")?.imageUrl || `https://placehold.co/300x400.png?text=${encodeURIComponent(item.name)}`}
                 alt={`${item.name} (Outfit)`}
                 layout="fill"
                 objectFit="cover"
@@ -119,7 +119,7 @@ export default function ClothingItemCard({ item, viewMode = 'realLife' }: Clothi
         return (
           <div className="aspect-[3/4] relative w-full">
             <Image
-              src={item.imageUrl || `https://placehold.co/400x600.png?text=${encodeURIComponent(item.name)}`}
+              src={item.imageUrl || item.purchaseOptions?.find(p => p.imageUrl != "")?.imageUrl || `https://placehold.co/400x600.png?text=${encodeURIComponent(item.name)}`}
               alt={item.name}
               layout="fill"
               objectFit="cover"

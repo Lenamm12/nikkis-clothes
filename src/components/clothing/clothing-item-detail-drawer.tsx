@@ -45,7 +45,7 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
           <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md">
             <Image
-              src={item.imageUrl || `https://placehold.co/400x600.png?text=${encodeURIComponent(item.name)}`}
+              src={item.imageUrl || item.purchaseOptions?.find(p => p.imageUrl != "")?.imageUrl || `https://placehold.co/400x600.png?text=${encodeURIComponent(item.name)}`}
               alt={`${item.name} (Outfit View)`}
               layout="fill"
               objectFit="cover"
@@ -128,7 +128,7 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
               {item.purchaseOptions.map((option, index) => (
                 <li key={index} className="p-4 border rounded-lg bg-card shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                    <span className="font-semibold text-lg text-foreground">{option.shopName}</span>
+                    <span className="font-semibold text-lg text-foreground">{option.website} : {option.shopName}</span>
                     <Button 
                       size="sm" 
                       asChild 

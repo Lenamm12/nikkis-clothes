@@ -1,14 +1,14 @@
 [
     {
       "id": "1",
-      "name": "Star Sea",
+      "name": "Sea of Stars",
       "game": "Infinity Nikki",
       "category": "Outfit",
       "description": "Among a sea of stars lies the unpredictable fate.",
       "imageUrl": "",
-      "ingameimageUrl": "https://static.wikia.nocookie.net/shining-nikki/images/4/44/Star_Sea_TW.jpg/revision/latest/scale-to-width-down/1000?cb=20240716230717",
+      "ingameImageUrl": "https://static.wikia.nocookie.net/shining-nikki/images/4/44/Star_Sea_TW.jpg/revision/latest/scale-to-width-down/1000?cb=20240716230717",
       "purchaseOptions": [
-        { "shopname": "Celestial Threads", "url": "#", "price": "0", "quality": "high" }
+        { "website": "My lolita dress" , "shopName": "", "url": "https://www.my-lolita-dress.com/Nikki-Love-Elegant-Purple-Star-Sea-Top-and-Skirt-p2237794.html", "price": "34,55€", "quality": "high", "imageUrl": "https://cdn.staticsab.com/55601/2022/12/22/9/7/97f2d33af36ec084.jpg" }
       ],
       "tags": [],
       "aiHint": ""
@@ -16,13 +16,14 @@
     {
       "id": "2",
       "name": "Perfect Start",
+      "outfit": "Perfect Start",
       "game": "Infinity Nikki",
       "category": "Dress",
       "description": "",
       "imageUrl": "",
-      "ingameimageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "ingameImageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
       "purchaseOptions": [
-        { "shopname": "Aliexpress", "url": "https://s.click.aliexpress.com/e/_omWvifq", "price": "41,19€", "quality": "low" }
+        { "website": "Aliexpress", "shopName": "", "url": "https://s.click.aliexpress.com/e/_omWvifq", "price": "41,19€", "quality": "low" , "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S959c0d0bd6a94f34950a13a50298fdb3n.jpg_960x960q75.jpg_.avif"}
       ],
       "tags": [],
       "aiHint": ""
@@ -30,15 +31,62 @@
     {
       "id": "3",
       "name": "Perfect Start",
+      "outfit": "Perfect Start",
       "game": "Infinity Nikki",
       "category": "Outfit",
       "description": "",
       "imageUrl": "",
-      "ingameimageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "ingameImageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
       "purchaseOptions": [
-        { "shopname": "Aliexpress", "url": "https://s.click.aliexpress.com/e/_opRNZzW", "price": "58,69€", "quality": "low" }
+        { "website": "Aliexpress", "shopName": "", "url": "https://s.click.aliexpress.com/e/_opRNZzW", "price": "58,69€", "quality": "low", "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S4b79cfa0d4774f6883de82648b51fee1W.jpg_960x960q75.jpg_.avif" }
+      ],
+      "tags": [],
+      "aiHint": ""
+    },
+    {
+      "id": "3",
+      "name": "Born Pink",
+      "outfit": "Perfect Start",
+      "game": "Infinity Nikki",
+      "category": "Hair",
+      "description": "",
+      "imageUrl": "",
+      "ingameImageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "purchaseOptions": [
+        { "website": "Aliexpress", "shopName": "", "url": "https://s.click.aliexpress.com/e/_oERZV4I", "price": "13,39€", "quality": "low", "imageUrl": "https://ae01.alicdn.com/kf/S5e189f59ff0b41d2998f21321abc992fZ.jpg_350x350.jpg" }
       ],
       "tags": [],
       "aiHint": ""
     }
+    ,
+    {
+      "id": "3",
+      "name": "Froggy Fashion",
+      "game": "Infinity Nikki",
+      "category": "Outfit",
+      "description": "",
+      "imageUrl": "",
+      "ingameImageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "purchaseOptions": [
+        { "website": "Aliexpress", "shopName": "", "url": "https://s.click.aliexpress.com/e/_okZB230", "price": "46,39€", "quality": "low", "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S4b6cd5931f2241d4a1eb1e4818ff455bI.jpg_960x960q75.jpg_.avif" }
+      ],
+      "tags": [],
+      "aiHint": ""
+    }
+    ,
+    {
+      "id": "3",
+      "name": "Afternoon Shine",
+      "game": "Infinity Nikki",
+      "category": "Outfit",
+      "description": "",
+      "imageUrl": "",
+      "ingameImageUrl": "https://static.wikia.nocookie.net/infinity-nikki/images/0/0c/Perfect_Start.png/revision/latest?cb=20250215101032",
+      "purchaseOptions": [
+        { "website": "Aliexpress", "shopName": "", "url": "https://s.click.aliexpress.com/e/_oCCK5Oa", "price": "13,39€", "quality": "low", "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S1f8157197a3e4d6f8b00dccb7405c136A.jpg_960x960q75.jpg_.avif" }
+      ],
+      "tags": [],
+      "aiHint": ""
+    }
+    
   ]

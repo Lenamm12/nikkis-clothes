@@ -1,15 +1,18 @@
 
 export interface PurchaseOption {
-  shopName: string;
+  website: string;
+  shopName?: string;
   url: string;
   price?: string; // e.g., "$25.99", "¥3000", "Contact for price"
   quality?: 'low' | 'mid' | 'high';
   notes?: string;
+  imageUrl?: string;
 }
 
 export interface ClothingItem {
   id: string;
   name: string;
+  outfit: string;
   description: string;
   imageUrl: string; // Represents real-life/costume image
   ingameImageUrl?: string; // Represents in-game screenshot
