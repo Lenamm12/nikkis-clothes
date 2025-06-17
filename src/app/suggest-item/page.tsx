@@ -73,7 +73,7 @@ export default function SuggestItemPage() {
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">Suggest an Item</CardTitle>
           <CardDescription>
-            Help us grow Nikki&apos;s Closet! If you know an item we&apos;re missing, please let us know.
+            Help us grow Nikki&apos;s Clothes! If you know an item we&apos;re missing, please let us know.
           </CardDescription>
         </CardHeader>
         <CardContent>

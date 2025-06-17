@@ -7,7 +7,7 @@ export default function SignupPage() {
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">Create Your Account</CardTitle>
-          <CardDescription>Join Nikki&apos;s Closet to discover and save your favorite styles.</CardDescription>
+          <CardDescription>Join Nikki&apos;s Clothes to discover and save your favorite styles.</CardDescription>
         </CardHeader>
         <CardContent>
           <SignupForm />

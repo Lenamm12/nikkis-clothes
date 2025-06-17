@@ -72,7 +72,7 @@ export default function HomePage() {
       <section>
         <Card className="bg-primary/10 border-primary/30 shadow-lg">
           <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-semibold text-primary mb-3">Join Nikki&apos;s Closet!</h3>
+            <h3 className="text-2xl font-semibold text-primary mb-3">Join Nikki&apos;s Clothes!</h3>
             <p className="text-foreground mb-6">
               Create an account to save your favorite items, get price drop notifications, and more!
             </p>

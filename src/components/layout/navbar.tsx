@@ -63,7 +63,7 @@ export default function Navbar() {
     <header className="bg-card border-b border-border shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity" aria-label="Nikki's Closet Home">
-          Nikki&apos;s Closet
+          Nikki&apos;s Clothes
         </Link>
 
         <div className="hidden md:flex items-center space-x-2 flex-grow justify-center max-w-xl">

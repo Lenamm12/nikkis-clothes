@@ -7,7 +7,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md shadow-xl">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold">Welcome Back!</CardTitle>
-          <CardDescription>Log in to access your Nikki&apos;s Closet account.</CardDescription>
+          <CardDescription>Log in to access your Nikki&apos;s Clothes account.</CardDescription>
         </CardHeader>
         <CardContent>
           <LoginForm />
