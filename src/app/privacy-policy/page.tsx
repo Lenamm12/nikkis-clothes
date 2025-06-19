@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ContactPage from "../contact/page";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -46,7 +47,8 @@ export default function PrivacyPolicyPage() {
           <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated &quot;Revised&quot; date and the updated version will be effective as soon as it is accessible.</p>
 
           <h2>10. How Can You Contact Us About This Notice?</h2>
-          <p>If you have questions or comments about this notice, you may email us at <a href="email:lena.maria.zeise@gmail.com">lena.maria.zeise@gmail.com</a>.</p>
+          <p>If you have questions or comments about this notice, you may email here:</p>
+          <ContactPage/>
         </CardContent>
       </Card>
     </div>

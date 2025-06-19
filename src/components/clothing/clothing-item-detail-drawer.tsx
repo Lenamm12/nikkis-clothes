@@ -31,6 +31,8 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
   const aiHintRealLife = item.aiHint || "fashion clothing";
   const aiHintIngame = `${item.aiHint || "fashion clothing"} ingame`;
 
+  const ingameImage = item.ingameImageUrl || placeholderIngame;
+
   return (
     <ScrollArea className="h-full pr-6">
       <SheetHeader className="mb-6">
@@ -53,10 +55,9 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
             />
             <div className="absolute bottom-2 left-2 bg-black/60 text-white px-2 py-1 text-xs rounded">Outfit View</div>
           </div>
-          {item.ingameImageUrl ? (
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-md">
               <Image
-                src={item.ingameImageUrl}
+                src={ingameImage}
                 alt={`${item.name} (In-Game View)`}
                 layout="fill"
                 objectFit="contain"
@@ -64,11 +65,6 @@ export default function ClothingItemDetailDrawer({ item }: ClothingItemDetailDra
               />
               <div className="absolute bottom-2 left-2 bg-black/60 text-white px-2 py-1 text-xs rounded">In-Game View</div>
             </div>
-          ) : (
-             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-md bg-muted flex items-center justify-center">
-                <p className="text-muted-foreground">In-game image not available</p>
-             </div>
-          )}
         </div>
 
         <Separator />

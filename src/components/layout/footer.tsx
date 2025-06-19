@@ -13,6 +13,9 @@ export default function Footer() {
           <Link href="/terms-of-service" className="hover:text-primary transition-colors">
             Terms of Service
           </Link>
+          <Link href="/contact" className="hover:text-primary transition-colors">
+            Contact
+          </Link>
         </div>
       </div>
     </footer>

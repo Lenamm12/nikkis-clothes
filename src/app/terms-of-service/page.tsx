@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ContactPage from "../contact/page";
 
 export default function TermsOfServicePage() {
   return (
@@ -39,7 +40,9 @@ export default function TermsOfServicePage() {
           <p>We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on the Website. Your continued use of the Website after such changes constitutes your acceptance of the new Terms.</p>
 
           <h2>10. Contact Us</h2>
-          <p>If you have any questions about these Terms, please contact us at <a href="email:lena.maria.zeise@gmail.com">lena.maria.zeise@gmail.com</a> .</p>
+          <p>If you have any questions about these Terms, please contact us here:</p>
+
+          <ContactPage/>
         </CardContent>
       </Card>
     </div>

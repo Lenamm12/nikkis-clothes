@@ -17,6 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import { availableGames } from "@/lib/data"; // Using static list from mock-data
 import { Send } from "lucide-react"; // Assuming this is used for the submit button icon
 import {loveNikkiItems, shiningNikkiItems, infinityNikkiItems} from "@/lib/data";
+import emailjs from '@emailjs/browser';
 
 export default function SuggestItemPage() {
   const { toast } = useToast();
@@ -30,19 +31,14 @@ export default function SuggestItemPage() {
     },
   });
 
-  function onSubmit(values: any) {
+  async function onSubmit(values: any) {
     console.log("Suggestion submitted:", values);
-  
-    fetch('/api/suggest-item', { 
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(values),
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
+
+    try {
+      
+      const res = await emailjs.send("service_c8phrvb", "template_skg8y7e", values);
+
+      if (res.status === 200) {
         toast({
           title: "Suggestion Submitted!",
           description: "Thank you for your contribution. We'll review it shortly.",
@@ -55,15 +51,15 @@ export default function SuggestItemPage() {
           variant: "destructive",
         });
       }
-    })
-    .catch((error) => {
+    }
+    catch(error)  {
       console.error('Error:', error);
       toast({
         title: "Submission Failed",
         description: "There was an error submitting your suggestion. Please try again later.",
         variant: "destructive",
       });
-    });
+    }
   }
   
 
